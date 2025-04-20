@@ -45,6 +45,8 @@ function showCards(data) {
     }
 
     data.forEach((item, index) => {
+        const mapQuery = encodeURIComponent(item.sightName + ' ' + item.address); // ✅ 加上空格並編碼
+
         content += `
         <div class="col-12 col-md-4 mb-4">
             <div class="card h-100">
@@ -53,7 +55,7 @@ function showCards(data) {
                     <h6 class="card-subtitle mb-2 text-muted">${item.zone}</h6>
                     <p class="card-text">類別：${item.category}</p>
                     <p class="card-text">地址：${item.address}</p>
-                    <a href="https://www.google.com/maps/search/?q=${item.sightName + item.address}" target="_blank" class="btn btn-sm btn-secondary">查看地圖</a>
+                    <a href="https://www.google.com/maps/search/?q=${mapQuery}" target="_blank" class="btn btn-sm btn-secondary">查看地圖</a>
 
                     <button class="btn btn-outline-primary mt-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}">
                         查看詳細資訊
