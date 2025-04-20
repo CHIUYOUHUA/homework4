@@ -1,6 +1,6 @@
 // 根據區域名稱向後端請求資料
 function loadData(zone) {
-    fetch(`http://127.0.0.1:8080/api/sights?zone=${zone}`)
+    fetch(`https://glistening-prosperity-production.up.railway.app/api/sights?zone=${zone}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -8,8 +8,8 @@ function loadData(zone) {
             return response.json();
         })
         .then(data => {
-            console.log(data); // 確認資料格式
-            showCards(data);   // 顯示卡片
+            console.log(data);
+            showCards(data);
         })
         .catch(error => {
             console.error("Error:", error);
@@ -60,7 +60,7 @@ function showCards(data) {
                     </button>
 
                     <div class="collapse mt-2" id="collapse${index}">
-                        ${item.photoUrl ? `<img src="${item.photoUrl}" class="img-fluid mb-2" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'" alt="圖片">` : ''}
+                        ${item.photoUrl ? `<img src="${item.photoUrl}" class="img-fluid mb-2" onerror="this.style.display='none'" alt="圖片">` : ''}
                         <p class="card-text">描述: ${item.description}</p>
                     </div>
                 </div>
