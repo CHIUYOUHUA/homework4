@@ -28,7 +28,7 @@ public class SightController {
     }
 
     // DELETE http://localhost:8080/api/sights/clear
-    @DeleteMapping("/clear")
+    @GetMapping("/clear")
     public String clearAllSights() {
         sightService.clearAll(); // 呼叫 Service 去清空資料
         return "所有景點資料已清空！";
