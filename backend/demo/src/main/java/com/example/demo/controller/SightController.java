@@ -18,12 +18,19 @@ public class SightController {
     // GET http://localhost:8080/api/sights/all
     @GetMapping("/all")
     public List<Sight> getAllSights() {
-        return sightService.getAll();  // ← 修改這行
+        return sightService.getAll();
     }
 
     // GET http://localhost:8080/api/sights?zone=安樂區
     @GetMapping
     public List<Sight> getSightsByZone(@RequestParam String zone) {
-        return sightService.getByZone(zone);  // ← 修改這行
+        return sightService.getByZone(zone);
+    }
+
+    // DELETE http://localhost:8080/api/sights/clear
+    @DeleteMapping("/clear")
+    public String clearAllSights() {
+        sightService.clearAll(); // 呼叫 Service 去清空資料
+        return "所有景點資料已清空！";
     }
 }

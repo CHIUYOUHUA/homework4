@@ -45,7 +45,7 @@ function showCards(data) {
     }
 
     data.forEach((item, index) => {
-        const mapQuery = encodeURIComponent(item.sightName + ' ' + item.address); // ✅ 加上空格並編碼
+        const mapQuery = encodeURIComponent(item.sightName + ' ' + item.address);
 
         content += `
         <div class="col-12 col-md-4 mb-4">
